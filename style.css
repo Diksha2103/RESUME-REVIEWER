@@ -1,0 +1,40 @@
+/* CSS for smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #f8fafc;
+}
+.gradient-bg {
+  background-color: #dbf9f4;
+  background-image: radial-gradient(
+      at 29% 9%,
+      hsla(170, 78%, 70%, 1) 0px,
+      transparent 50%
+    ),
+    radial-gradient(at 73% 90%, hsla(169, 78%, 66%, 1) 0px, transparent 50%);
+}
+.upload-box {
+  border: 2px dashed #a7e0d6;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+.upload-box.drag-over {
+  background-color: #c6f6ed;
+  border-color: #4fd1c5;
+}
+.upload-box-dark {
+  background-color: rgba(30, 41, 59, 0.5);
+  border: 2px dashed #4b5563;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+.upload-box-dark.drag-over {
+  background-color: rgba(55, 65, 81, 0.5);
+  border-color: #6b7280;
+}
+.privacy-lock {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  vertical-align: -0.125em;
+}

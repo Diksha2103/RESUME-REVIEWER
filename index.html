@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resume Builder</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      href="https://cdn-icons-png.flaticon.com/512/1260/1260219.png"
+    />
+  </head>
+  <body class="text-gray-800">
+    <div id="container" class="min-h-screen flex flex-col">
+      <!-- Header Navigation -->
+      <header class="w-full bg-white shadow-sm sticky top-0 z-50">
+        <nav
+          class="container mx-auto px-6 py-4 flex justify-between items-center"
+        >
+          <div class="flex items-center space-x-2">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/1260/1260219.png"
+              alt="Logo"
+              class="h-8 w-8"
+            />
+            <a href="#" class="text-xl font-bold text-gray-800">Enhancv</a>
+          </div>
+          <div class="hidden md:flex items-center space-x-6">
+            <!-- Updated Resume link to scroll to the new section -->
+            <a
+              href="#resume-upload-section"
+              class="text-gray-600 hover:text-teal-500 transition"
+              >Resume</a
+            >
+            <a href="#" class="text-gray-600 hover:text-teal-500 transition"
+              >Cover Letter</a
+            >
+            <a href="#" class="text-gray-600 hover:text-teal-500 transition"
+              >Blog</a
+            >
+            <a href="#" class="text-gray-600 hover:text-teal-500 transition"
+              >Pricing</a
+            >
+            <a href="#" class="text-gray-600 hover:text-teal-500 transition"
+              >For Organizations</a
+            >
+          </div>
+          <div class="hidden md:flex items-center space-x-4">
+            <a
+              href="#"
+              class="text-gray-600 font-medium hover:text-teal-500 transition"
+              >Sign in</a
+            >
+            <a
+              href="#"
+              class="bg-teal-500 text-white px-5 py-2 rounded-lg font-medium hover:bg-teal-600 transition"
+              >Get Started</a
+            >
+          </div>
+          <div class="md:hidden">
+            <button class="text-gray-800 focus:outline-none">
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16m-7 6h7"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </nav>
+      </header>
+
+      <!-- Main Body Content -->
+      <main class="flex-grow">
+        <!-- Section 1: Resume Checker -->
+        <section class="gradient-bg">
+          <div class="container mx-auto px-6 py-16 md:py-24">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+              <div class="left text-center md:text-left">
+                <p class="text-teal-600 font-semibold mb-2">RESUME CHECKER</p>
+                <h1 class="text-4xl md:text-5xl font-bold leading-tight">
+                  Is your resume good <span class="text-teal-500">enough?</span>
+                </h1>
+                <h4 class="text-lg text-gray-600 mt-6 max-w-md mx-auto md:mx-0">
+                  A free and fast AI resume checker doing 16 crucial checks to
+                  ensure your resume is ready to perform and get you interview
+                  callbacks.
+                </h4>
+              </div>
+              <div class="right">
+                <div
+                  id="upload-area-1"
+                  class="upload-box bg-white/50 p-8 rounded-2xl text-center cursor-pointer"
+                >
+                  <svg
+                    class="mx-auto h-12 w-12 text-gray-400"
+                    stroke="currentColor"
+                    fill="none"
+                    viewBox="0 0 48 48"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  <p class="mt-4 text-gray-700 font-medium">
+                    Drop your resume here or choose a file.
+                  </p>
+                  <p
+                    id="file-name-1"
+                    class="mt-1 text-sm text-gray-500 h-5"
+                  ></p>
+                  <p class="mt-1 text-xs text-gray-500">
+                    PDF & DOCX only. Max 2MB file size.
+                  </p>
+                  <button
+                    id="upload-btn-1"
+                    class="mt-6 bg-teal-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-teal-600 transition w-full sm:w-auto"
+                  >
+                    Upload Your Resume
+                  </button>
+                  <input
+                    type="file"
+                    id="file-input-1"
+                    class="hidden"
+                    accept=".pdf,.docx"
+                  />
+                  <div
+                    class="mt-6 flex items-center justify-center text-sm text-gray-500"
+                  >
+                    <svg
+                      class="privacy-lock mr-2 text-gray-400"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                    <span>Privacy guaranteed</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 2: Rewrite with AI -->
+        <section class="bg-white py-16 md:py-24 overflow-hidden">
+          <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+              <div class="text-content">
+                <h2 class="text-4xl md:text-5xl font-bold leading-tight">
+                  Rewrite your resume with AI
+                </h2>
+                <p class="text-lg text-gray-600 mt-6">
+                  Get your resume rewritten by the world's best AI engine
+                  (ChatGPT 4.0) in combination with tailored prompts and a
+                  fine-tuned model based on your resume and the job ad you're
+                  applying for to save time.
+                </p>
+                <p class="text-lg text-gray-600 mt-4">
+                  Receive content suggestions based on the sections your resume
+                  currently has. Generate a resume summary or objective based on
+                  your experience. Get skills suggestions based on the industry
+                  you're applying for. Omit buzzwords, filler words, and
+                  irrelevant content.
+                </p>
+              </div>
+              <div class="relative w-full h-full">
+                <svg
+                  viewBox="0 0 450 300"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-full h-auto"
+                >
+                  <defs>
+                    <filter
+                      id="shadow"
+                      x="-20%"
+                      y="-20%"
+                      width="140%"
+                      height="140%"
+                    >
+                      <feGaussianBlur in="SourceAlpha" stdDeviation="3" />
+                      <feOffset dx="2" dy="4" result="offsetblur" />
+                      <feComponentTransfer>
+                        <feFuncA type="linear" slope="0.3" />
+                      </feComponentTransfer>
+                      <feMerge>
+                        <feMergeNode />
+                        <feMergeNode in="SourceGraphic" />
+                      </feMerge>
+                    </filter>
+                  </defs>
+                  <circle
+                    cx="350"
+                    cy="50"
+                    r="100"
+                    fill="#c6f6ed"
+                    opacity="0.5"
+                  />
+                  <rect
+                    x="50"
+                    y="150"
+                    width="150"
+                    height="150"
+                    rx="20"
+                    fill="#e0f2fe"
+                    opacity="0.5"
+                    transform="rotate(-30 125 225)"
+                  />
+                  <g style="filter: url(#shadow)">
+                    <rect
+                      x="250"
+                      y="20"
+                      width="180"
+                      height="260"
+                      rx="15"
+                      fill="#388173"
+                    />
+                    <rect
+                      x="250"
+                      y="20"
+                      width="180"
+                      height="40"
+                      rx="15"
+                      ry="15"
+                      fill="#2d6a5c"
+                    />
+                    <circle cx="265" cy="40" r="5" fill="#f56565" />
+                    <circle cx="285" cy="40" r="5" fill="#f59e0b" />
+                    <circle cx="305" cy="40" r="5" fill="#38b2ac" />
+                    <text
+                      x="265"
+                      y="85"
+                      font-family="Inter, sans-serif"
+                      font-size="10"
+                      font-weight="bold"
+                      fill="white"
+                      class="uppercase tracking-wider"
+                    >
+                      Strengths
+                    </text>
+                    <circle cx="265" cy="105" r="2" fill="#a7f3d0" />
+                    <text
+                      x="275"
+                      y="108"
+                      font-family="Inter, sans-serif"
+                      font-size="8"
+                      fill="white"
+                    >
+                      Strategic Leadership
+                    </text>
+                    <circle cx="265" cy="125" r="2" fill="#a7f3d0" />
+                    <text
+                      x="275"
+                      y="128"
+                      font-family="Inter, sans-serif"
+                      font-size="8"
+                      fill="white"
+                    >
+                      Problem-Solving Skills
+                    </text>
+                    <circle cx="265" cy="145" r="2" fill="#a7f3d0" />
+                    <text
+                      x="275"
+                      y="148"
+                      font-family="Inter, sans-serif"
+                      font-size="8"
+                      fill="white"
+                    >
+                      Effective Communication
+                    </text>
+                    <text
+                      x="265"
+                      y="185"
+                      font-family="Inter, sans-serif"
+                      font-size="10"
+                      font-weight="bold"
+                      fill="white"
+                      class="uppercase tracking-wider"
+                    >
+                      Skills
+                    </text>
+                    <rect
+                      x="265"
+                      y="200"
+                      width="70"
+                      height="18"
+                      rx="9"
+                      fill="#2d6a5c"
+                    />
+                    <text
+                      x="272"
+                      y="212"
+                      font-family="Inter, sans-serif"
+                      font-size="7"
+                      fill="white"
+                    >
+                      Project Management
+                    </text>
+                    <rect
+                      x="340"
+                      y="200"
+                      width="50"
+                      height="18"
+                      rx="9"
+                      fill="#2d6a5c"
+                    />
+                    <text
+                      x="345"
+                      y="212"
+                      font-family="Inter, sans-serif"
+                      font-size="7"
+                      fill="white"
+                    >
+                      IT Security
+                    </text>
+                  </g>
+                  <g style="filter: url(#shadow)">
+                    <rect
+                      x="20"
+                      y="60"
+                      width="220"
+                      height="180"
+                      rx="15"
+                      fill="white"
+                    />
+                    <rect
+                      x="20"
+                      y="60"
+                      width="220"
+                      height="30"
+                      rx="15"
+                      ry="15"
+                      fill="#f1f5f9"
+                    />
+                    <text
+                      x="35"
+                      y="80"
+                      font-family="Inter, sans-serif"
+                      font-size="9"
+                      fill="#475569"
+                    >
+                      AI Assistant
+                    </text>
+                    <rect
+                      x="30"
+                      y="100"
+                      width="150"
+                      height="25"
+                      rx="10"
+                      fill="#dcfce7"
+                    />
+                    <text
+                      x="40"
+                      y="116"
+                      font-family="Inter, sans-serif"
+                      font-size="8"
+                      fill="#166534"
+                    >
+                      How do you want to improve?
+                    </text>
+                    <rect
+                      x="80"
+                      y="135"
+                      width="150"
+                      height="25"
+                      rx="10"
+                      fill="#e0f2fe"
+                    />
+                    <text
+                      x="90"
+                      y="151"
+                      font-family="Inter, sans-serif"
+                      font-size="8"
+                      fill="#0c4a6e"
+                    >
+                      Create suggestions for new bullets
+                    </text>
+                  </g>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 3: Professional Templates -->
+        <section class="bg-gray-50 py-16 md:py-24">
+          <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+              <div class="image-container md:order-first order-last">
+                <img
+                  src="./download.png"
+                  alt="Professional Resume Template"
+                  class="rounded-2xl shadow-xl w-full h-auto"
+                  onerror="this.onerror=null;this.src='https://placehold.co/600x800/e2e8f0/334155?text=Resume+Template+Example';"
+                />
+              </div>
+              <div class="text-content">
+                <h2 class="text-4xl md:text-5xl font-bold leading-tight">
+                  Win recruiters over with a professional resume template
+                </h2>
+                <p class="text-lg text-gray-600 mt-6">
+                  Choose from a library of expert-designed resume templates.
+                  Stand out from the competition with a modern, professional,
+                  and attention-grabbing resume that is also ATS-friendly.
+                </p>
+                <p class="text-lg text-gray-600 mt-4">
+                  Each template is crafted to highlight your skills and
+                  experience effectively, ensuring your best qualifications are
+                  front and center. Easy to customize, you can create a
+                  personalized resume in minutes.
+                </p>
+                <button
+                  class="mt-8 bg-teal-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-teal-600 transition"
+                >
+                  Browse Templates
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 4: Final Upload CTA -->
+        <section
+          id="resume-upload-section"
+          class="bg-gradient-to-br from-gray-900 via-indigo-900 to-purple-900 py-16 md:py-24"
+        >
+          <div class="container mx-auto px-6 text-center text-white">
+            <h2 class="text-4xl md:text-5xl font-bold">
+              Get your resume score now!
+            </h2>
+            <p class="mt-4 text-lg text-gray-300 max-w-2xl mx-auto">
+              Upload your resume and you'll get a personalized email with an
+              actionable tasklist.
+            </p>
+            <div class="mt-12 max-w-xl mx-auto">
+              <div
+                id="upload-area-2"
+                class="upload-box-dark p-8 rounded-2xl text-center cursor-pointer"
+              >
+                <svg
+                  class="mx-auto h-12 w-12 text-gray-400"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 16.5V9.75m0 0l-3.75 3.75M12 9.75l3.75 3.75M3 17.25V21a2.25 2.25 0 002.25 2.25h13.5A2.25 2.25 0 0021 21v-3.75"
+                  />
+                </svg>
+                <button
+                  id="upload-btn-2"
+                  class="mt-6 bg-teal-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-teal-600 transition w-full sm:w-auto"
+                >
+                  Upload Your Resume
+                </button>
+                <p class="mt-4 text-gray-400 font-medium">
+                  Drop your resume here or choose a file.
+                </p>
+                <p id="file-name-2" class="mt-1 text-sm text-gray-400 h-5"></p>
+                <p class="mt-1 text-xs text-gray-500">
+                  PDF & DOCX only. Max 2MB file size.
+                </p>
+                <input
+                  type="file"
+                  id="file-input-2"
+                  class="hidden"
+                  accept=".pdf,.docx"
+                />
+                <div
+                  class="mt-6 flex items-center justify-center text-sm text-gray-400"
+                >
+                  <svg
+                    class="privacy-lock mr-2"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                  <span>Privacy guaranteed</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- Footer -->
+      <footer class="bg-white py-8">
+        <div class="container mx-auto px-6">
+          <div
+            class="border-t border-gray-200 pt-8 flex flex-col md:flex-row justify-between items-center"
+          >
+            <!-- Left Side: Logos -->
+            <div class="flex items-center space-x-6 mb-6 md:mb-0">
+              <a href="#" aria-label="Facebook">
+                <svg
+                  class="w-6 h-6 text-gray-500 hover:text-blue-600 transition"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M22.675 0H1.325C.593 0 0 .593 0 1.325v21.35C0 23.407.593 24 1.325 24H12.82v-9.29h-3.128V11.21h3.128V8.648c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.5h-3.12V24h6.116c.732 0 1.325-.593 1.325-1.325V1.325C24 .593 23.407 0 22.675 0z"
+                  />
+                </svg>
+              </a>
+              <a href="#" aria-label="X/Twitter">
+                <svg
+                  class="w-6 h-6 text-gray-500 hover:text-black transition"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                  />
+                </svg>
+              </a>
+              <a href="#" aria-label="PARWCC">
+                <img
+                  src="https://assets-global.website-files.com/623235a966a3c4c379a77103/623235a966a3c45831a771c5_parwcc-logo.svg"
+                  alt="PARWCC Logo"
+                  class="h-10"
+                />
+              </a>
+              <a href="#" aria-label="AWAI Verified">
+                <img
+                  src="https://assets-global.website-files.com/623235a966a3c4c379a77103/623235a966a3c4b18ea771c6_awai-verified-logo.svg"
+                  alt="AWAI Verified Logo"
+                  class="h-10"
+                />
+              </a>
+            </div>
+            <!-- Right Side: Copyright -->
+            <div
+              class="flex items-center space-x-3 text-sm text-gray-500 text-center md:text-left"
+            >
+              <span>Made with love by people who care.</span>
+              <svg
+                class="w-7 h-7 hidden sm:inline-block"
+                viewBox="0 0 100 100"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle
+                  cx="50"
+                  cy="50"
+                  r="48"
+                  fill="none"
+                  stroke="#38b2ac"
+                  stroke-width="4"
+                />
+                <text
+                  x="50"
+                  y="55"
+                  font-family="Inter, sans-serif"
+                  font-size="30"
+                  font-weight="bold"
+                  text-anchor="middle"
+                  fill="#38b2ac"
+                >
+                  CSY
+                </text>
+              </svg>
+              <span>&copy; 2025. All rights reserved.</span>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
